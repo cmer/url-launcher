@@ -1,0 +1,13 @@
+# Version for this file.
+version: 1
+
+# The OS to compile for. `GOOS` env variable will be set to this value.
+goos: darwin
+goarch: arm64
+binary: url-launcher-{{ .Os }}-{{ .Arch }}
+
+ldflags:
+  - "-X main.Version={{ .Env.VERSION }}"
+  - "-X main.Commit={{ .Env.COMMIT }}"
+  - "-X main.CommitDate={{ .Env.COMMIT_DATE }}"
+  - "-X main.TreeState={{ .Env.TREE_STATE }}"
